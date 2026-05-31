@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products | Onix Studios UEFN Marketplace</title>
+  <meta name="description" content="Browse Onix Studios UEFN products, map kits, gameplay systems, and creator-ready downloads.">
+  <meta property="og:title" content="Onix Studios Products">
+  <meta property="og:description" content="Buy UEFN map kits, gameplay systems, and creator tools from Onix Studios.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Onix Studios home">
+        <img src="images/logo.png" alt="Onix Studios logo" width="1080" height="1080">
+        <span>Onix Studios</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+      <div class="nav-menu" data-nav-menu>
+        <a href="index.html">Home</a>
+        <a href="services.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Support</a>
+      </div>
+      <a class="button button--primary nav-cta" href="#products">Browse products</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero__inner" data-animate>
+        <p class="eyebrow">Products</p>
+        <h1>Direct-purchase UEFN assets for creators.</h1>
+        <p class="page-hero__lead">Swap the placeholder checkout URLs for your live product links when your payment platform is ready. Product cards are rendered from one simple JavaScript array.</p>
+        <div class="cta-row">
+          <a class="button button--gold" href="#products">View catalogue</a>
+          <a class="button button--secondary" href="gallery.html">See screenshots</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="products">
+      <div class="section__inner">
+        <div class="section__header" data-animate>
+          <div>
+            <p class="eyebrow">Catalogue</p>
+            <h2>Current Onix Studios products.</h2>
+          </div>
+          <p class="section__lead">Each purchase should deliver through your chosen checkout provider, keeping payment data off this site.</p>
+        </div>
+        <div class="product-grid product-grid--catalogue" data-product-grid></div>
+      </div>
+    </section>
+
+    <section class="section section--split">
+      <div class="section__inner split">
+        <div data-animate>
+          <p class="eyebrow">Delivery model</p>
+          <h2>Simple for customers, simple for you to maintain.</h2>
+          <p class="section__lead">The static website presents the brand and product catalogue. The checkout provider handles payments, receipts, taxes, file delivery, and repeat download access.</p>
+        </div>
+        <div class="feature-grid" data-animate>
+          <article>
+            <h3>Hosted payments</h3>
+            <p>Customers pay through a secure third-party checkout instead of entering payment details into your site.</p>
+          </article>
+          <article>
+            <h3>Email receipts</h3>
+            <p>Download links and receipts are sent automatically after payment by the sales platform.</p>
+          </article>
+          <article>
+            <h3>Manual updates</h3>
+            <p>Products, prices, images, and checkout links live in <code>data/products.js</code>.</p>
+          </article>
+          <article>
+            <h3>No monthly backend</h3>
+            <p>No login system, database, or server is required for this first direct-purchase version.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <a class="brand brand--footer" href="index.html">
+          <img src="images/logo.png" alt="" width="1080" height="1080">
+          <span>Onix Studios</span>
+        </a>
+        <p>UEFN marketplace products, map kits, and gameplay systems for creators.</p>
+      </div>
+      <div>
+        <h3>Store</h3>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Support</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:onixstudios@example.com" data-email-link data-email-text>onixstudios@example.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/products.js"></script>
+  <script src="data/gallery.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Onix Studios</title>
+  <meta name="description" content="Contact Onix Studios for UEFN product support, custom enquiries, marketplace questions, and download help.">
+  <meta property="og:title" content="Contact Onix Studios">
+  <meta property="og:description" content="Get support for Onix Studios UEFN marketplace products.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Onix Studios home">
+        <img src="images/logo.png" alt="Onix Studios logo" width="1080" height="1080">
+        <span>Onix Studios</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+      <div class="nav-menu" data-nav-menu>
+        <a href="index.html">Home</a>
+        <a href="services.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Support</a>
+      </div>
+      <a class="button button--primary nav-cta" href="services.html">Browse products</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero__inner" data-animate>
+        <p class="eyebrow">Contact</p>
+        <h1>Support, product questions, and custom UEFN enquiries.</h1>
+        <p class="page-hero__lead">Use the form for product support, pre-sale questions, download help, or custom development enquiries.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="section__inner contact-layout">
+        <div data-animate>
+          <p class="eyebrow">Message Onix Studios</p>
+          <h2>Send the details.</h2>
+          <form class="contact-form" data-contact-form>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic" required>
+                  <option value="">Choose a topic</option>
+                  <option>Product question</option>
+                  <option>Download support</option>
+                  <option>Custom UEFN work</option>
+                  <option>Checkout issue</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="order">Order email or receipt ID</label>
+                <input id="order" name="order" type="text" placeholder="Optional">
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us which product you are asking about and what you need help with." required></textarea>
+            </div>
+            <button class="button button--gold" type="submit">Send message</button>
+            <p class="form-note">This opens an email draft with your message filled in.</p>
+          </form>
+        </div>
+
+        <aside class="support-panel" data-animate>
+          <h2>Before sending</h2>
+          <div class="support-list">
+            <article>
+              <h3>Purchased product</h3>
+              <p>Include the email used at checkout so the order can be found quickly.</p>
+            </article>
+            <article>
+              <h3>Download issue</h3>
+              <p>Check the receipt email from the checkout platform for your download link first.</p>
+            </article>
+            <article>
+              <h3>Custom work</h3>
+              <p>Share the project type, UEFN feature goals, deadline, and budget range.</p>
+            </article>
+          </div>
+          <a class="button button--secondary" href="mailto:onixstudios@example.com" data-email-link data-email-text>onixstudios@example.com</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <a class="brand brand--footer" href="index.html">
+          <img src="images/logo.png" alt="" width="1080" height="1080">
+          <span>Onix Studios</span>
+        </a>
+        <p>UEFN marketplace products, map kits, and gameplay systems for creators.</p>
+      </div>
+      <div>
+        <h3>Store</h3>
+        <a href="index.html">Home</a>
+        <a href="services.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:onixstudios@example.com" data-email-link data-email-text>onixstudios@example.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/products.js"></script>
+  <script src="data/gallery.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
