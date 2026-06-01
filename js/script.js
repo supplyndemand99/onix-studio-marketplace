@@ -141,6 +141,7 @@ function productCardTemplate(product) {
 function productVisualTemplate(product, context = "card") {
   return `
     <div class="product-visual product-visual--${escapeHtml(product.theme)} product-visual--${escapeHtml(context)}" aria-hidden="true">
+      <img class="product-visual__preview-image" src="images/website-preview.png" alt="" loading="lazy">
       <div class="product-visual__chrome">
         <span></span><span></span><span></span>
       </div>
@@ -150,6 +151,7 @@ function productVisualTemplate(product, context = "card") {
       <div class="product-visual__panel product-visual__panel--two"></div>
       <div class="product-visual__meter"></div>
       <div class="product-visual__status">${escapeHtml(product.status || product.category)}</div>
+      <span class="product-visual__brand-spin"></span>
     </div>
   `;
 }

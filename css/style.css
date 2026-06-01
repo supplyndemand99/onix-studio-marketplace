@@ -307,30 +307,135 @@ code {
 
 .hero__media::before {
   position: absolute;
-  --hero-shift: 28%;
-  right: 0;
-  top: 8rem;
-  width: min(56vw, 620px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: var(--radius);
+  inset: 0;
+  z-index: 0;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
-    url("../images/logo.png") center / cover no-repeat;
-  box-shadow: 0 34px 120px rgba(4, 35, 96, 0.52);
-  opacity: 0.72;
-  transform: translateX(var(--hero-shift)) rotate(-8deg);
-  animation: heroPanelFloat 9s ease-in-out infinite;
+    linear-gradient(115deg, rgba(4, 31, 75, 0.45), rgba(10, 172, 199, 0.16) 54%, rgba(255, 255, 255, 0.05)),
+    linear-gradient(180deg, transparent 0%, rgba(6, 129, 164, 0.12) 100%);
   content: "";
 }
 
 .hero__media::after {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
     linear-gradient(90deg, rgba(3, 20, 47, 0.95) 0%, rgba(3, 20, 47, 0.76) 45%, rgba(3, 20, 47, 0.28) 100%),
     linear-gradient(0deg, rgba(3, 20, 47, 0.72), transparent 45%);
   content: "";
+}
+
+.hero-logo {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: 1;
+  display: block;
+  width: var(--size);
+  aspect-ratio: 1;
+  opacity: var(--alpha);
+  filter: drop-shadow(0 28px 44px rgba(0, 0, 0, 0.22));
+  transform: translate(-50%, -50%);
+  animation: heroLogoPan var(--pan-speed) ease-in-out infinite;
+  animation-delay: var(--pan-delay);
+  will-change: transform;
+}
+
+.hero-logo::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("../images/onix-logo-alpha.png") center / contain no-repeat;
+  content: "";
+  transform-origin: 50% 50%;
+  animation: heroLogoSpin var(--spin-speed) linear infinite;
+  animation-delay: var(--spin-delay);
+  will-change: transform;
+}
+
+.hero-logo--one {
+  --x: 86%;
+  --y: 42%;
+  --size: clamp(360px, 35vw, 720px);
+  --alpha: 0.48;
+  --pan-speed: 8.4s;
+  --spin-speed: 15s;
+  --pan-delay: -1.2s;
+  --spin-delay: -2s;
+  --pan-x-1: -26px;
+  --pan-y-1: -18px;
+  --pan-x-2: 32px;
+  --pan-y-2: -34px;
+  --pan-x-3: 18px;
+  --pan-y-3: 28px;
+}
+
+.hero-logo--two {
+  --x: 66%;
+  --y: 19%;
+  --size: clamp(230px, 22vw, 430px);
+  --alpha: 0.22;
+  --pan-speed: 7.2s;
+  --spin-speed: 12s;
+  --pan-delay: -4.2s;
+  --spin-delay: -5s;
+  --pan-x-1: 22px;
+  --pan-y-1: 16px;
+  --pan-x-2: -30px;
+  --pan-y-2: 28px;
+  --pan-x-3: -12px;
+  --pan-y-3: -24px;
+}
+
+.hero-logo--three {
+  --x: 72%;
+  --y: 77%;
+  --size: clamp(270px, 27vw, 540px);
+  --alpha: 0.3;
+  --pan-speed: 9.2s;
+  --spin-speed: 18s;
+  --pan-delay: -2.7s;
+  --spin-delay: -8s;
+  --pan-x-1: -34px;
+  --pan-y-1: 20px;
+  --pan-x-2: 30px;
+  --pan-y-2: 24px;
+  --pan-x-3: 16px;
+  --pan-y-3: -32px;
+}
+
+.hero-logo--four {
+  --x: 98%;
+  --y: 76%;
+  --size: clamp(280px, 28vw, 560px);
+  --alpha: 0.2;
+  --pan-speed: 6.8s;
+  --spin-speed: 14s;
+  --pan-delay: -3.4s;
+  --spin-delay: -1.8s;
+  --pan-x-1: -40px;
+  --pan-y-1: -22px;
+  --pan-x-2: -4px;
+  --pan-y-2: 34px;
+  --pan-x-3: -54px;
+  --pan-y-3: 16px;
+}
+
+.hero-logo--five {
+  --x: 50%;
+  --y: 54%;
+  --size: clamp(180px, 18vw, 360px);
+  --alpha: 0.1;
+  --pan-speed: 7.8s;
+  --spin-speed: 13s;
+  --pan-delay: -5.1s;
+  --spin-delay: -4.5s;
+  --pan-x-1: 26px;
+  --pan-y-1: -18px;
+  --pan-x-2: -18px;
+  --pan-y-2: -30px;
+  --pan-x-3: -28px;
+  --pan-y-3: 18px;
 }
 
 .hero__inner,
@@ -343,6 +448,7 @@ code {
 .hero__inner {
   display: grid;
   gap: 1.55rem;
+  z-index: 3;
   padding: 9rem 0 5.6rem;
 }
 
@@ -623,6 +729,53 @@ h4 {
   --accent-2: #c7f7ff;
 }
 
+.product-visual__preview-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.product-visual::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(2, 18, 43, 0.02), rgba(2, 18, 43, 0.28)),
+    linear-gradient(90deg, rgba(2, 18, 43, 0.1), transparent 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.product-visual__brand-spin {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 5;
+  width: clamp(46px, 18%, 82px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08)),
+    rgba(2, 18, 43, 0.42);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(18px);
+}
+
+.product-visual__brand-spin::before {
+  position: absolute;
+  inset: 16%;
+  background: url("../images/onix-logo-alpha.png") center / contain no-repeat;
+  content: "";
+  transform-origin: 50% 50%;
+  animation: productLogoSpin 6s linear infinite;
+}
+
 .product-visual__chrome {
   position: absolute;
   left: 1rem;
@@ -631,6 +784,8 @@ h4 {
   display: flex;
   gap: 0.38rem;
   z-index: 3;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .product-visual__chrome span {
@@ -652,6 +807,10 @@ h4 {
   opacity: 0.42;
 }
 
+.product-visual__grid {
+  display: none;
+}
+
 .product-visual__vortex {
   position: absolute;
   right: 10%;
@@ -664,6 +823,7 @@ h4 {
     conic-gradient(from 20deg, transparent 0 9%, var(--accent) 10% 16%, transparent 17% 32%, rgba(255, 255, 255, 0.92) 33% 39%, transparent 40% 62%, var(--accent-2) 63% 70%, transparent 71% 100%);
   box-shadow: 0 0 44px rgba(37, 228, 255, 0.34);
   animation: vortexTurn 12s linear infinite;
+  display: none;
 }
 
 .product-visual__panel {
@@ -674,6 +834,7 @@ h4 {
   background: rgba(255, 255, 255, 0.13);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(16px);
+  display: none;
 }
 
 .product-visual__panel--one {
@@ -704,6 +865,7 @@ h4 {
     linear-gradient(90deg, var(--accent), var(--accent-2) 58%, rgba(255, 255, 255, 0.26) 58%),
     rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 44%, transparent);
+  display: none;
 }
 
 .product-visual__status {
@@ -721,6 +883,7 @@ h4 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   backdrop-filter: blur(18px);
+  display: none;
 }
 
 .process-list,
@@ -1147,13 +1310,28 @@ textarea:focus {
   transform: translateY(0);
 }
 
-@keyframes heroPanelFloat {
+@keyframes heroLogoPan {
   0%,
   100% {
-    transform: translateX(var(--hero-shift)) translateY(0) rotate(-8deg);
+    transform: translate(-50%, -50%) translate3d(var(--pan-x-1), var(--pan-y-1), 0);
   }
-  50% {
-    transform: translateX(var(--hero-shift)) translateY(-18px) rotate(-5deg);
+  42% {
+    transform: translate(-50%, -50%) translate3d(var(--pan-x-2), var(--pan-y-2), 0);
+  }
+  72% {
+    transform: translate(-50%, -50%) translate3d(var(--pan-x-3), var(--pan-y-3), 0);
+  }
+}
+
+@keyframes heroLogoSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes productLogoSpin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -1221,11 +1399,29 @@ textarea:focus {
     min-height: 700px;
   }
 
-  .hero__media::before {
-    --hero-shift: 38%;
-    right: 0;
-    width: 560px;
-    opacity: 0.42;
+  .hero-logo--one {
+    --x: 91%;
+    --y: 42%;
+    --size: 520px;
+    --alpha: 0.34;
+  }
+
+  .hero-logo--two {
+    --x: 69%;
+    --y: 18%;
+    --size: 310px;
+  }
+
+  .hero-logo--three {
+    --x: 78%;
+    --y: 78%;
+    --size: 390px;
+  }
+
+  .hero-logo--five {
+    --x: 50%;
+    --y: 50%;
+    --alpha: 0.08;
   }
 
   h1 {
@@ -1281,11 +1477,39 @@ textarea:focus {
     padding: 7rem 0 4rem;
   }
 
-  .hero__media::before {
-    --hero-shift: 0%;
-    right: 0;
-    top: 10rem;
-    width: min(70vw, 250px);
+  .hero-logo--one {
+    --x: 83%;
+    --y: 31%;
+    --size: 300px;
+    --alpha: 0.28;
+  }
+
+  .hero-logo--two {
+    --x: 30%;
+    --y: 18%;
+    --size: 210px;
+    --alpha: 0.11;
+  }
+
+  .hero-logo--three {
+    --x: 78%;
+    --y: 74%;
+    --size: 260px;
+    --alpha: 0.18;
+  }
+
+  .hero-logo--four {
+    --x: 100%;
+    --y: 56%;
+    --size: 250px;
+    --alpha: 0.12;
+  }
+
+  .hero-logo--five {
+    --x: 18%;
+    --y: 61%;
+    --size: 180px;
+    --alpha: 0.08;
   }
 
   h1 {
