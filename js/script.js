@@ -166,17 +166,18 @@ function productVisualTemplate(product, context = "card") {
 
 function mediaPreviewTemplate(item, theme, index) {
   const isVideo = item.type === "video";
+  const previewPoster = item.poster || "images/website-preview.png";
   const mediaSource = item.src ? ` data-media-src="${escapeHtml(item.src)}"` : "";
-  const mediaPoster = item.poster ? ` data-media-poster="${escapeHtml(item.poster)}"` : "";
-  const posterImage = item.poster ? `<img class="media-card__poster" src="${escapeHtml(item.poster)}" alt="" loading="lazy">` : "";
+  const mediaPoster = ` data-media-poster="${escapeHtml(previewPoster)}"`;
+  const posterImage = `<img class="media-card__poster" src="${escapeHtml(previewPoster)}" alt="" loading="lazy">`;
 
   return `
     <button class="media-card glass-card media-card--${escapeHtml(theme)} ${isVideo ? "media-card--video" : "media-card--image"}" type="button" data-open-media data-media-type="${escapeHtml(item.type)}" data-media-title="${escapeHtml(item.title)}" data-media-detail="${escapeHtml(item.detail)}" data-media-theme="${escapeHtml(theme)}" data-media-index="${escapeHtml(index)}"${mediaSource}${mediaPoster} aria-label="Open larger ${isVideo ? "video" : "picture"} preview: ${escapeHtml(item.title)}">
-      <div class="media-card__preview ${item.poster ? "media-card__preview--poster" : ""}" aria-hidden="true">
+      <div class="media-card__preview media-card__preview--poster" aria-hidden="true">
         ${posterImage}
         <div class="media-card__scan"></div>
         <div class="media-card__grid"></div>
-        ${isVideo ? `<span class="play-icon"></span>` : `<span class="image-icon"></span>`}
+        ${isVideo ? `<span class="play-icon"></span>` : ""}
       </div>
       <div>
         <span>${isVideo ? "Video" : `Picture ${index}`}</span>
