@@ -168,10 +168,12 @@ function mediaPreviewTemplate(item, theme, index) {
   const isVideo = item.type === "video";
   const mediaSource = item.src ? ` data-media-src="${escapeHtml(item.src)}"` : "";
   const mediaPoster = item.poster ? ` data-media-poster="${escapeHtml(item.poster)}"` : "";
+  const posterImage = item.poster ? `<img class="media-card__poster" src="${escapeHtml(item.poster)}" alt="" loading="lazy">` : "";
 
   return `
     <button class="media-card glass-card media-card--${escapeHtml(theme)} ${isVideo ? "media-card--video" : "media-card--image"}" type="button" data-open-media data-media-type="${escapeHtml(item.type)}" data-media-title="${escapeHtml(item.title)}" data-media-detail="${escapeHtml(item.detail)}" data-media-theme="${escapeHtml(theme)}" data-media-index="${escapeHtml(index)}"${mediaSource}${mediaPoster} aria-label="Open larger ${isVideo ? "video" : "picture"} preview: ${escapeHtml(item.title)}">
-      <div class="media-card__preview" aria-hidden="true">
+      <div class="media-card__preview ${item.poster ? "media-card__preview--poster" : ""}" aria-hidden="true">
+        ${posterImage}
         <div class="media-card__scan"></div>
         <div class="media-card__grid"></div>
         ${isVideo ? `<span class="play-icon"></span>` : `<span class="image-icon"></span>`}
@@ -292,7 +294,7 @@ function mediaViewerVisualTemplate(media) {
   return `
     <div class="media-lightbox__visual media-lightbox__visual--${isVideo ? "video" : "image"} media-lightbox__visual--${escapeHtml(media.theme)}">
       ${hasVideoSource
-        ? `<video controls playsinline preload="metadata" poster="${escapeHtml(media.poster || "images/website-preview.png")}"><source src="${escapeHtml(media.src)}" type="video/mp4">Your browser does not support the video tag.</video>`
+        ? `<video controls playsinline autoplay preload="metadata" poster="${escapeHtml(media.poster || "images/website-preview.png")}"><source src="${escapeHtml(media.src)}" type="video/mp4">Your browser does not support the video tag.</video>`
         : `<img src="${escapeHtml(media.poster || "images/website-preview.png")}" alt="" loading="lazy">`
       }
       <span class="product-visual__brand-spin"></span>
@@ -331,6 +333,10 @@ function openMediaViewer(trigger) {
 
   viewer.removeAttribute("hidden");
   document.body.classList.add("media-lightbox-open");
+  const video = viewer.querySelector("video");
+  if (video) {
+    video.play().catch(() => {});
+  }
   viewer.querySelector(".media-lightbox__close").focus();
 }
 
