@@ -3,6 +3,8 @@ const siteSettings = {
   contactSubject: "Onix Studios enquiry"
 };
 
+let lastMediaTrigger = null;
+
 function updateContactLinks() {
   document.querySelectorAll("[data-email-link]").forEach((link) => {
     link.href = `mailto:${siteSettings.email}`;
@@ -159,7 +161,7 @@ function productVisualTemplate(product, context = "card") {
 function mediaPreviewTemplate(item, theme, index) {
   const isVideo = item.type === "video";
   return `
-    <article class="media-card glass-card media-card--${escapeHtml(theme)} ${isVideo ? "media-card--video" : "media-card--image"}">
+    <button class="media-card glass-card media-card--${escapeHtml(theme)} ${isVideo ? "media-card--video" : "media-card--image"}" type="button" data-open-media data-media-type="${escapeHtml(item.type)}" data-media-title="${escapeHtml(item.title)}" data-media-detail="${escapeHtml(item.detail)}" data-media-theme="${escapeHtml(theme)}" data-media-index="${escapeHtml(index)}" aria-label="Open larger ${isVideo ? "video" : "picture"} preview: ${escapeHtml(item.title)}">
       <div class="media-card__preview" aria-hidden="true">
         <div class="media-card__scan"></div>
         <div class="media-card__grid"></div>
@@ -170,7 +172,7 @@ function mediaPreviewTemplate(item, theme, index) {
         <h4>${escapeHtml(item.title)}</h4>
         <p>${escapeHtml(item.detail)}</p>
       </div>
-    </article>
+    </button>
   `;
 }
 
@@ -211,6 +213,12 @@ function renderGallery() {
 
 function initProductInteractions() {
   document.addEventListener("click", (event) => {
+    const mediaButton = event.target.closest("[data-open-media]");
+    if (mediaButton) {
+      openMediaViewer(mediaButton);
+      return;
+    }
+
     const openButton = event.target.closest("[data-open-product]");
     if (openButton) {
       openProductDetail(openButton.dataset.openProduct);
@@ -252,6 +260,78 @@ function ensureProductModal() {
   }
 
   return modal;
+}
+
+function ensureMediaViewer() {
+  let viewer = document.querySelector("[data-media-viewer]");
+
+  if (!viewer) {
+    viewer = document.createElement("div");
+    viewer.className = "media-lightbox";
+    viewer.setAttribute("data-media-viewer", "");
+    viewer.setAttribute("hidden", "");
+    document.body.appendChild(viewer);
+  }
+
+  return viewer;
+}
+
+function mediaViewerVisualTemplate(media) {
+  const isVideo = media.type === "video";
+
+  return `
+    <div class="media-lightbox__visual media-lightbox__visual--${isVideo ? "video" : "image"} media-lightbox__visual--${escapeHtml(media.theme)}">
+      <img src="images/website-preview.png" alt="" loading="lazy">
+      <span class="product-visual__brand-spin"></span>
+      ${isVideo ? `<span class="media-lightbox__play" aria-hidden="true"></span>` : ""}
+    </div>
+  `;
+}
+
+function openMediaViewer(trigger) {
+  const viewer = ensureMediaViewer();
+  const media = {
+    type: trigger.dataset.mediaType || "image",
+    title: trigger.dataset.mediaTitle || "Product preview",
+    detail: trigger.dataset.mediaDetail || "",
+    theme: trigger.dataset.mediaTheme || "arena",
+    index: trigger.dataset.mediaIndex || ""
+  };
+
+  lastMediaTrigger = trigger;
+
+  viewer.innerHTML = `
+    <div class="media-lightbox__backdrop" data-close-media></div>
+    <section class="media-lightbox__panel glass-card" role="dialog" aria-modal="true" aria-labelledby="media-lightbox-title">
+      <button class="media-lightbox__close" type="button" data-close-media aria-label="Close larger preview">Close</button>
+      ${mediaViewerVisualTemplate(media)}
+      <div class="media-lightbox__body">
+        <p class="eyebrow">${media.type === "video" ? "Preview video" : `Product picture ${escapeHtml(media.index)}`}</p>
+        <h2 id="media-lightbox-title">${escapeHtml(media.title)}</h2>
+        <p>${escapeHtml(media.detail)}</p>
+      </div>
+    </section>
+  `;
+
+  viewer.removeAttribute("hidden");
+  document.body.classList.add("media-lightbox-open");
+  viewer.querySelector(".media-lightbox__close").focus();
+}
+
+function closeMediaViewer() {
+  const viewer = document.querySelector("[data-media-viewer]");
+  if (!viewer || viewer.hasAttribute("hidden")) return false;
+
+  viewer.setAttribute("hidden", "");
+  viewer.innerHTML = "";
+  document.body.classList.remove("media-lightbox-open");
+
+  if (lastMediaTrigger && document.contains(lastMediaTrigger)) {
+    lastMediaTrigger.focus();
+  }
+
+  lastMediaTrigger = null;
+  return true;
 }
 
 function openProductDetail(productId) {
@@ -328,6 +408,7 @@ function closeProductDetail() {
   const modal = document.querySelector("[data-product-modal]");
   if (!modal || modal.hasAttribute("hidden")) return;
 
+  closeMediaViewer();
   modal.setAttribute("hidden", "");
   modal.innerHTML = "";
   document.body.classList.remove("product-modal-open");
@@ -335,6 +416,11 @@ function closeProductDetail() {
 
 function initProductModalClose() {
   document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-close-media]")) {
+      closeMediaViewer();
+      return;
+    }
+
     if (event.target.closest("[data-close-product]")) {
       closeProductDetail();
     }
@@ -342,6 +428,7 @@ function initProductModalClose() {
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      if (closeMediaViewer()) return;
       closeProductDetail();
     }
   });
