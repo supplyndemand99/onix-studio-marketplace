@@ -12,7 +12,7 @@ const products = [
     price: "$24.99",
     theme: "arena",
     status: "Featured",
-    checkoutUrl: "https://example.com/checkout/rift-arena-framework",
+    checkoutUrl: "https://onixstudiosdev.lemonsqueezy.com/checkout/buy/9abb6bfc-d915-4153-a70a-1c00ff8f3152",
     featured: true,
     shortDescription: "A compact arena foundation with modular lanes, spawn flow, score pacing, and polished presentation zones.",
     description: "Built as a fast starting point for competitive UEFN islands. Use it to prototype a combat arena, boxfight variant, warmup space, or creator-branded lobby-to-match flow without starting from a blank grid.",
