@@ -624,6 +624,7 @@ h4 {
   left: 0;
   top: 0;
   z-index: 12;
+  content: "";
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -642,6 +643,7 @@ h4 {
   left: 0;
   top: 0;
   z-index: 11;
+  content: "";
   width: 170px;
   height: 34px;
   border-radius: 999px;
