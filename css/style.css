@@ -766,12 +766,13 @@ h4 {
     rgba(2, 18, 43, 0.42);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(18px);
+  overflow: hidden;
 }
 
 .product-visual__brand-spin::before {
   position: absolute;
-  inset: 4%;
-  background: url("../images/onix-logo-alpha.png") center / 172% no-repeat;
+  inset: 8%;
+  background: url("../images/onix-logo-mark.png") center / contain no-repeat;
   content: "";
   transform-origin: 50% 50%;
   animation: productLogoSpin 6s linear infinite;
