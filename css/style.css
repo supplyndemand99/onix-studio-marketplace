@@ -608,6 +608,7 @@ h4 {
 }
 
 .product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -615,6 +616,59 @@ h4 {
   border-radius: var(--radius);
   cursor: pointer;
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.product-card::before,
+.gallery-card::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(194, 252, 255, 0.95) 0 12%, rgba(70, 232, 255, 0.72) 16% 30%, rgba(28, 178, 255, 0.22) 48%, transparent 72%);
+  filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 180ms ease;
+}
+
+.product-card::after,
+.gallery-card::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 8;
+  width: 118px;
+  height: 26px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(58, 226, 255, 0.08) 26%, rgba(72, 235, 255, 0.34) 62%, rgba(202, 253, 255, 0.74) 100%);
+  filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-100%, -50%);
+  transform-origin: 100% 50%;
+  transition: opacity 180ms ease;
+}
+
+.product-card:hover::before,
+.product-card:focus-visible::before,
+.gallery-card:hover::before,
+.gallery-card:focus-visible::before {
+  opacity: 1;
+  animation: edgePulseTravel 3.2s linear infinite;
+}
+
+.product-card:hover::after,
+.product-card:focus-visible::after,
+.gallery-card:hover::after,
+.gallery-card:focus-visible::after {
+  opacity: 0.84;
+  animation: edgeTrailTravel 3.2s linear infinite;
 }
 
 .product-card:hover,
@@ -775,7 +829,7 @@ h4 {
   background: url("../images/onix-logo-mark.png") center / contain no-repeat;
   content: "";
   transform-origin: 50% 50%;
-  animation: productLogoSpin 6s linear infinite;
+  animation: productLogoSpin 9s linear infinite;
 }
 
 .product-visual__chrome {
@@ -1353,6 +1407,77 @@ textarea:focus {
       0 34px 112px rgba(0, 203, 255, 0.34),
       0 0 34px rgba(106, 232, 255, 0.22),
       inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  }
+}
+
+@keyframes edgePulseTravel {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 100%;
+    top: 0;
+  }
+  50% {
+    left: 100%;
+    top: 100%;
+  }
+  75% {
+    left: 0;
+    top: 100%;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes edgeTrailTravel {
+  0% {
+    left: 0;
+    top: 0;
+    transform: translate(-100%, -50%) rotate(0deg);
+  }
+  24.99% {
+    left: 100%;
+    top: 0;
+    transform: translate(-100%, -50%) rotate(0deg);
+  }
+  25% {
+    left: 100%;
+    top: 0;
+    transform: translate(-100%, -50%) rotate(90deg);
+  }
+  49.99% {
+    left: 100%;
+    top: 100%;
+    transform: translate(-100%, -50%) rotate(90deg);
+  }
+  50% {
+    left: 100%;
+    top: 100%;
+    transform: translate(-100%, -50%) rotate(180deg);
+  }
+  74.99% {
+    left: 0;
+    top: 100%;
+    transform: translate(-100%, -50%) rotate(180deg);
+  }
+  75% {
+    left: 0;
+    top: 100%;
+    transform: translate(-100%, -50%) rotate(270deg);
+  }
+  99.99% {
+    left: 0;
+    top: 0;
+    transform: translate(-100%, -50%) rotate(270deg);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    transform: translate(-100%, -50%) rotate(360deg);
   }
 }
 
