@@ -623,13 +623,13 @@ h4 {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 9;
-  width: 58px;
-  height: 58px;
+  z-index: 12;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(194, 252, 255, 0.95) 0 12%, rgba(70, 232, 255, 0.72) 16% 30%, rgba(28, 178, 255, 0.22) 48%, transparent 72%);
-  filter: blur(6px);
+    radial-gradient(circle, #ffffff 0 5%, rgba(200, 253, 255, 0.98) 8% 15%, rgba(70, 232, 255, 0.78) 22% 34%, rgba(28, 178, 255, 0.28) 52%, transparent 76%);
+  filter: blur(4px);
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -641,13 +641,13 @@ h4 {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 8;
-  width: 118px;
-  height: 26px;
+  z-index: 11;
+  width: 170px;
+  height: 34px;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(58, 226, 255, 0.08) 26%, rgba(72, 235, 255, 0.34) 62%, rgba(202, 253, 255, 0.74) 100%);
-  filter: blur(8px);
+    linear-gradient(90deg, transparent 0%, rgba(58, 226, 255, 0.08) 18%, rgba(72, 235, 255, 0.3) 48%, rgba(202, 253, 255, 0.82) 82%, #ffffff 100%);
+  filter: blur(7px);
   opacity: 0;
   pointer-events: none;
   transform: translate(-100%, -50%);
@@ -660,15 +660,15 @@ h4 {
 .gallery-card:hover::before,
 .gallery-card:focus-visible::before {
   opacity: 1;
-  animation: edgePulseTravel 3.2s linear infinite;
+  animation: edgePulseTravel 2.8s linear infinite;
 }
 
 .product-card:hover::after,
 .product-card:focus-visible::after,
 .gallery-card:hover::after,
 .gallery-card:focus-visible::after {
-  opacity: 0.84;
-  animation: edgeTrailTravel 3.2s linear infinite;
+  opacity: 1;
+  animation: edgeTrailTravel 2.8s linear infinite;
 }
 
 .product-card:hover,
