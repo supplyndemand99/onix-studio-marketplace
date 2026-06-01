@@ -6,39 +6,39 @@
 */
 const galleryImages = [
   {
-    productId: "rift-arena-framework",
-    title: "Arena Flythrough",
+    productId: "collision-events-system",
+    title: "Collision Event Demo",
     category: "Video Preview",
     theme: "arena",
     type: "video",
-    detail: "Product video area for a trailer or walkthrough.",
+    detail: "Preview area for custom collision events and gameplay triggers.",
     featured: true
   },
   {
-    productId: "tycoon-economy-core",
-    title: "Upgrade Flow",
+    productId: "camera-raycast-system",
+    title: "Camera Raycast Preview",
+    category: "Video Preview",
+    theme: "quest",
+    type: "video",
+    detail: "Preview area for look-based detection and interaction targeting.",
+    featured: true
+  },
+  {
+    productId: "modular-building-system",
+    title: "Building Placement Flow",
+    category: "Screenshot",
+    theme: "lobby",
+    type: "image",
+    detail: "Preview area for snapping, placement, and Scene Graph structure handling.",
+    featured: true
+  },
+  {
+    productId: "material-pack-vol-1",
+    title: "Material Showcase",
     category: "Screenshot",
     theme: "economy",
     type: "image",
-    detail: "Preview area for upgrade paths and shop logic.",
-    featured: true
-  },
-  {
-    productId: "quest-pulse-kit",
-    title: "Quest Objective State",
-    category: "Screenshot",
-    theme: "quest",
-    type: "image",
-    detail: "Preview area for objectives, prompts, and rewards.",
-    featured: true
-  },
-  {
-    productId: "creator-lobby-suite",
-    title: "Lobby Reveal",
-    category: "Video Preview",
-    theme: "lobby",
-    type: "video",
-    detail: "Product video area for a cinematic lobby reveal.",
+    detail: "Preview area for useful creator-ready materials and environment polish.",
     featured: true
   }
 ];

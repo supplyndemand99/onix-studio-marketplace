@@ -6,115 +6,115 @@
 */
 const products = [
   {
-    id: "rift-arena-framework",
-    name: "Rift Arena Framework",
-    category: "Map Kit",
-    price: "£9.99",
-    theme: "arena",
-    status: "Featured",
-    checkoutUrl: "https://onixstudiosdev.lemonsqueezy.com/checkout/buy/9abb6bfc-d915-4153-a70a-1c00ff8f3152",
-    featured: true,
-    shortDescription: "A compact arena foundation with modular lanes, spawn flow, score pacing, and polished presentation zones.",
-    description: "Built as a fast starting point for competitive UEFN islands. Use it to prototype a combat arena, boxfight variant, warmup space, or creator-branded lobby-to-match flow without starting from a blank grid.",
-    includes: [
-      "Arena layout shell with modular zones",
-      "Spawn and round-flow planning notes",
-      "Lighting, signage, and polish checklist"
-    ],
-    specs: [
-      "UEFN project structure",
-      "Beginner-friendly setup notes",
-      "Commercial creator use allowed"
-    ],
-    media: [
-      { type: "video", title: "Arena flythrough", detail: "Preview the arena layout, pacing, and presentation flow." },
-      { type: "image", title: "Spawn flow", detail: "See how team start positions and lane movement are planned." },
-      { type: "image", title: "Combat lanes", detail: "Review modular cover, ramps, and sightline structure." },
-      { type: "image", title: "Polish pass", detail: "Check lighting, trim, and final presentation details." }
-    ]
-  },
-  {
-    id: "tycoon-economy-core",
-    name: "Tycoon Economy Core",
+    id: "collision-events-system",
+    name: "Onix Collision Events System",
     category: "Gameplay System",
-    price: "$34.99",
-    theme: "economy",
-    status: "Best seller",
+    price: "Coming soon",
+    theme: "arena",
+    status: "Planned",
     checkoutUrl: "",
     featured: true,
-    shortDescription: "A storefront-ready product for shop loops, upgrades, earn rates, unlock pacing, and economy testing.",
-    description: "A logic-focused UEFN system pack for creators who want a strong starting point for progression. Use it to plan shop flows, upgrade tiers, reward pacing, and economy testing before adding your own theme.",
+    shortDescription: "A custom collision detection system for UEFN that lets creators detect object and player collisions, then trigger gameplay events from those interactions.",
+    description: "The Onix Collision Events System gives UEFN creators a flexible way to detect collisions inside Fortnite experiences and turn them into usable gameplay events. Use it for custom hit detection, trigger zones, object interaction, ability systems, traps, pickups, moving hazards, and other mechanics where standard devices feel too limited.",
     includes: [
-      "Shop and upgrade flow outline",
-      "Reward pacing examples",
-      "Testing checklist for economy balance"
+      "Custom collision detection logic",
+      "Event-ready interaction outputs",
+      "Setup notes for UEFN gameplay systems"
     ],
     specs: [
-      "Gameplay system template",
-      "Works as a learning pack",
-      "Email receipt and support reference"
+      "Built for UEFN creators",
+      "Designed for event-driven gameplay",
+      "Useful for traps, pickups, hazards, and interactions"
     ],
     media: [
-      { type: "video", title: "System walkthrough", detail: "Preview purchases, upgrades, and reward moments in action." },
-      { type: "image", title: "Upgrade board", detail: "Review upgrade tiers and purchase-terminal flow." },
-      { type: "image", title: "Reward loop", detail: "See how resource flow and earn-rate testing are structured." },
-      { type: "image", title: "Device map", detail: "Check device grouping, layout, and naming structure." }
+      { type: "video", title: "Collision event demo", detail: "Preview collision detection triggering gameplay events in real time." },
+      { type: "image", title: "Detection zones", detail: "See how collision areas can be planned around props and player movement." },
+      { type: "image", title: "Event routing", detail: "Review how detected collisions can connect to custom gameplay logic." },
+      { type: "image", title: "Use-case examples", detail: "Check examples for hazards, pickups, traps, and moving objects." }
     ]
   },
   {
-    id: "quest-pulse-kit",
-    name: "Quest Pulse Kit",
-    category: "Interaction Kit",
-    price: "$29.99",
+    id: "camera-raycast-system",
+    name: "Onix Camera Raycast System",
+    category: "Interaction System",
+    price: "Coming soon",
     theme: "quest",
-    status: "New",
+    status: "Planned",
     checkoutUrl: "",
     featured: true,
-    shortDescription: "Objective tracking, interaction prompts, progress beats, and reward moments for story-driven islands.",
-    description: "A quest-focused interaction starter for creators building missions, tutorials, NPC-style prompts, or onboarding flows. Use it to structure objectives, feedback states, and completion moments.",
+    shortDescription: "A player-camera raycast system for UEFN that detects what the player is looking at and sends event-ready results for gameplay logic.",
+    description: "The Onix Camera Raycast System fires raycasts from the player's camera to detect where they are looking in real time. It is built for interaction prompts, targeting systems, inspection mechanics, object selection, custom tools, abilities, and any gameplay feature that needs reliable look-based detection.",
     includes: [
-      "Quest stage structure",
-      "Interaction prompt examples",
-      "Reward and completion moments"
+      "Player-camera raycast logic",
+      "Look-based detection outputs",
+      "Interaction and targeting examples"
     ],
     specs: [
-      "Mission design starter",
-      "Reusable objective flow",
-      "Good for tutorial islands"
+      "Built for UEFN creators",
+      "Designed for camera-based detection",
+      "Useful for prompts, tools, targeting, and selection"
     ],
     media: [
-      { type: "video", title: "Quest flow preview", detail: "Preview objectives from first interaction to completion." },
-      { type: "image", title: "Objective marker", detail: "Review markers, prompts, and feedback states." },
-      { type: "image", title: "Interaction panel", detail: "See how dialogue-style prompts can be presented." },
-      { type: "image", title: "Reward state", detail: "Check completion UI and player feedback moments." }
+      { type: "video", title: "Raycast preview", detail: "Preview camera-based detection from the player's point of view." },
+      { type: "image", title: "Look target", detail: "See how objects can be detected based on where the player is aiming." },
+      { type: "image", title: "Interaction prompt", detail: "Review prompt and inspection use cases for detected objects." },
+      { type: "image", title: "Event output", detail: "Check how raycast results can feed into gameplay events." }
     ]
   },
   {
-    id: "creator-lobby-suite",
-    name: "Creator Lobby Suite",
-    category: "Environment Kit",
-    price: "$39.99",
+    id: "modular-building-system",
+    name: "Onix Modular Building System",
+    category: "Building System",
+    price: "Coming soon",
     theme: "lobby",
-    status: "Premium",
+    status: "Planned",
     checkoutUrl: "",
-    featured: false,
-    shortDescription: "A polished hub concept for portals, product showcases, update boards, and creator-brand presentation.",
-    description: "A premium environment foundation for creators who want a polished first impression. Use it for portal hubs, product showcases, update boards, and creator-brand presentation spaces.",
+    featured: true,
+    shortDescription: "A Rust-inspired custom building system for UEFN using Scene Graph, designed for placeable structures, snapping, and creator-made build mechanics.",
+    description: "The Onix Modular Building System brings a Rust-style building workflow into UEFN with custom placement, snapping logic, and Scene Graph-driven structure handling. It is designed for survival maps, base-building islands, tycoon systems, sandbox modes, and any creator project that needs controlled player-built structures.",
     includes: [
-      "Lobby layout blueprint",
-      "Portal and showcase zones",
-      "Lighting and atmosphere notes"
+      "Custom placement and snapping flow",
+      "Scene Graph-driven structure handling",
+      "Building-system setup guidance"
     ],
     specs: [
-      "Environment kit concept",
-      "Creator-brand focused",
-      "Built for product presentation"
+      "Built for UEFN creators",
+      "Designed around Scene Graph workflows",
+      "Useful for survival, sandbox, and base-building islands"
     ],
     media: [
-      { type: "video", title: "Lobby reveal", detail: "Preview the hub layout through a cinematic walkthrough." },
-      { type: "image", title: "Portal wall", detail: "Review multi-island portal presentation options." },
-      { type: "image", title: "Display plinths", detail: "See product, update, or season showcase areas." },
-      { type: "image", title: "Ambient pass", detail: "Check fog, bloom, and colour-grading direction." }
+      { type: "video", title: "Building flow demo", detail: "Preview placing and snapping modular pieces inside a UEFN experience." },
+      { type: "image", title: "Placement preview", detail: "See planned ghost placement and build-position feedback." },
+      { type: "image", title: "Snapping logic", detail: "Review how modular pieces can align into controlled structures." },
+      { type: "image", title: "Structure handling", detail: "Check how Scene Graph can support organized build systems." }
+    ]
+  },
+  {
+    id: "material-pack-vol-1",
+    name: "Onix Material Pack Vol. 1",
+    category: "Material Pack",
+    price: "Coming soon",
+    theme: "economy",
+    status: "Planned",
+    checkoutUrl: "",
+    featured: true,
+    shortDescription: "A useful UEFN material pack filled with polished, creator-ready materials for maps, props, UI spaces, arenas, and themed environments.",
+    description: "Onix Material Pack Vol. 1 includes a collection of clean, practical, and stylized materials made for UEFN creators. Use them to speed up environment design, improve map presentation, build polished props, create themed areas, and give your island a more professional visual finish without starting every material from scratch.",
+    includes: [
+      "Creator-ready material collection",
+      "Useful surfaces for props and environments",
+      "Polished styles for faster map presentation"
+    ],
+    specs: [
+      "Built for UEFN creators",
+      "Designed for practical map production",
+      "Useful for arenas, hubs, props, and themed spaces"
+    ],
+    media: [
+      { type: "video", title: "Material showcase", detail: "Preview the pack across props, floors, walls, and environment pieces." },
+      { type: "image", title: "Surface examples", detail: "See practical materials for clean map-building workflows." },
+      { type: "image", title: "Theme variants", detail: "Review stylized options for different island moods and settings." },
+      { type: "image", title: "Environment polish", detail: "Check how materials can lift props, arenas, and creator hubs." }
     ]
   }
 ];

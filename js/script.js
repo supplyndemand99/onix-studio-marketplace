@@ -273,7 +273,7 @@ function openProductDetail(productId) {
           <p>${escapeHtml(product.description)}</p>
           <div class="product-modal__price">
             <strong>${escapeHtml(product.price)}</strong>
-            <span>One-time purchase</span>
+            <span>${hasCheckoutUrl(product) ? "One-time purchase" : "Product page coming soon"}</span>
           </div>
           <div class="product-card__actions">
             ${checkoutActionTemplate(product, "button--primary")}
