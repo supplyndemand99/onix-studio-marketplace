@@ -1880,7 +1880,7 @@ textarea:focus {
   .hero__inner,
   .page-hero__inner,
   .site-footer__inner {
-    width: min(100% - 1rem, var(--max));
+    width: min(100% - 1.75rem, var(--max));
   }
 
   .brand span {
