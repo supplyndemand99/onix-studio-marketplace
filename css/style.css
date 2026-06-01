@@ -1532,12 +1532,24 @@ textarea:focus {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
 }
 
-.media-lightbox__visual img {
+.media-lightbox__visual img,
+.media-lightbox__visual video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   filter: saturate(1.08) contrast(1.04);
+}
+
+.media-lightbox__visual video {
+  position: relative;
+  z-index: 3;
+  background: #020f25;
+}
+
+.media-lightbox__visual:has(video)::after,
+.media-lightbox__visual:has(video) .product-visual__brand-spin {
+  display: none;
 }
 
 .media-lightbox__visual::after {

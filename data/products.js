@@ -27,7 +27,7 @@ const products = [
       "Useful for traps, pickups, hazards, and interactions"
     ],
     media: [
-      { type: "video", title: "Collision event demo", detail: "Preview collision detection triggering gameplay events in real time." },
+      { type: "video", title: "Collision event demo", detail: "Preview collision detection triggering gameplay events in real time.", src: "videos/collision-event-demo.mp4", poster: "images/website-preview.png" },
       { type: "image", title: "Detection zones", detail: "See how collision areas can be planned around props and player movement." },
       { type: "image", title: "Event routing", detail: "Review how detected collisions can connect to custom gameplay logic." },
       { type: "image", title: "Use-case examples", detail: "Check examples for hazards, pickups, traps, and moving objects." }
