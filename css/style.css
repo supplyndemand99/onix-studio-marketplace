@@ -619,6 +619,7 @@ h4 {
 
 .product-card:hover,
 .product-card:focus-visible {
+  animation: cardHoverGlow 2.7s ease-in-out infinite;
   border-color: rgba(255, 255, 255, 0.58);
   box-shadow: 0 32px 110px rgba(0, 203, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.34);
   outline: none;
@@ -769,8 +770,8 @@ h4 {
 
 .product-visual__brand-spin::before {
   position: absolute;
-  inset: 16%;
-  background: url("../images/onix-logo-alpha.png") center / contain no-repeat;
+  inset: 4%;
+  background: url("../images/onix-logo-alpha.png") center / 172% no-repeat;
   content: "";
   transform-origin: 50% 50%;
   animation: productLogoSpin 6s linear infinite;
@@ -960,6 +961,7 @@ h4 {
 
 .gallery-card:hover,
 .gallery-card:focus-visible {
+  animation: cardHoverGlow 2.7s ease-in-out infinite;
   border-color: rgba(255, 255, 255, 0.58);
   box-shadow: 0 30px 100px rgba(0, 203, 255, 0.24);
   outline: none;
@@ -1332,6 +1334,24 @@ textarea:focus {
 @keyframes productLogoSpin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes cardHoverGlow {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.52);
+    box-shadow:
+      0 26px 82px rgba(0, 203, 255, 0.22),
+      0 0 0 1px rgba(135, 237, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+  50% {
+    border-color: rgba(194, 247, 255, 0.78);
+    box-shadow:
+      0 34px 112px rgba(0, 203, 255, 0.34),
+      0 0 34px rgba(106, 232, 255, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.42);
   }
 }
 
