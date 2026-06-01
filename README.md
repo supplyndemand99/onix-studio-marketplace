@@ -130,7 +130,7 @@ js/script.js
 Look for:
 
 ```js
-email: "onixstudios@example.com"
+email: "onixstudiohelp@gmail.com"
 ```
 
 ## Deploy to Cloudflare Pages

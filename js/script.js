@@ -1,5 +1,5 @@
 const siteSettings = {
-  email: "onixstudios@example.com",
+  email: "onixstudiohelp@gmail.com",
   contactSubject: "Onix Studios enquiry"
 };
 
