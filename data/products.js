@@ -27,10 +27,10 @@ const products = [
       "Commercial creator use allowed"
     ],
     media: [
-      { type: "video", title: "Arena flythrough", detail: "Fake video preview slot for a launch trailer or walkthrough." },
-      { type: "image", title: "Spawn flow", detail: "Screenshot slot showing team start positions and lane movement." },
-      { type: "image", title: "Combat lanes", detail: "Screenshot slot for modular cover, ramps, and sightlines." },
-      { type: "image", title: "Polish pass", detail: "Screenshot slot for lighting, trim, and presentation details." }
+      { type: "video", title: "Arena flythrough", detail: "Preview the arena layout, pacing, and presentation flow." },
+      { type: "image", title: "Spawn flow", detail: "See how team start positions and lane movement are planned." },
+      { type: "image", title: "Combat lanes", detail: "Review modular cover, ramps, and sightline structure." },
+      { type: "image", title: "Polish pass", detail: "Check lighting, trim, and final presentation details." }
     ]
   },
   {
@@ -42,8 +42,8 @@ const products = [
     status: "Best seller",
     checkoutUrl: "https://example.com/checkout/tycoon-economy-core",
     featured: true,
-    shortDescription: "A fake storefront product for shop loops, upgrades, earn rates, unlock pacing, and economy testing.",
-    description: "Designed to demonstrate how a serious UEFN product page could present logic-heavy systems. The final product could include Verse snippets, device layout notes, upgrade balancing sheets, and example island logic.",
+    shortDescription: "A storefront-ready product for shop loops, upgrades, earn rates, unlock pacing, and economy testing.",
+    description: "A logic-focused UEFN system pack for creators who want a strong starting point for progression. Use it to plan shop flows, upgrade tiers, reward pacing, and economy testing before adding your own theme.",
     includes: [
       "Shop and upgrade flow outline",
       "Reward pacing examples",
@@ -52,13 +52,13 @@ const products = [
     specs: [
       "Gameplay system template",
       "Works as a learning pack",
-      "Receipt-based download delivery"
+      "Email receipt and support reference"
     ],
     media: [
-      { type: "video", title: "System walkthrough", detail: "Fake video slot for showing purchases, upgrades, and rewards in action." },
-      { type: "image", title: "Upgrade board", detail: "Screenshot slot for upgrade tiers and purchase terminals." },
-      { type: "image", title: "Reward loop", detail: "Screenshot slot for resource flow and earn rate testing." },
-      { type: "image", title: "Device map", detail: "Screenshot slot for device group layout and naming." }
+      { type: "video", title: "System walkthrough", detail: "Preview purchases, upgrades, and reward moments in action." },
+      { type: "image", title: "Upgrade board", detail: "Review upgrade tiers and purchase-terminal flow." },
+      { type: "image", title: "Reward loop", detail: "See how resource flow and earn-rate testing are structured." },
+      { type: "image", title: "Device map", detail: "Check device grouping, layout, and naming structure." }
     ]
   },
   {
@@ -71,7 +71,7 @@ const products = [
     checkoutUrl: "https://example.com/checkout/quest-pulse-kit",
     featured: true,
     shortDescription: "Objective tracking, interaction prompts, progress beats, and reward moments for story-driven islands.",
-    description: "A fake product listing that shows how support-heavy kits can be explained clearly. Use this layout later for quest systems, NPC-style interactions, tutorial flows, or onboarding packs.",
+    description: "A quest-focused interaction starter for creators building missions, tutorials, NPC-style prompts, or onboarding flows. Use it to structure objectives, feedback states, and completion moments.",
     includes: [
       "Quest stage structure",
       "Interaction prompt examples",
@@ -83,10 +83,10 @@ const products = [
       "Good for tutorial islands"
     ],
     media: [
-      { type: "video", title: "Quest flow preview", detail: "Fake video slot for showing objectives from start to finish." },
-      { type: "image", title: "Objective marker", detail: "Screenshot slot for markers, prompts, and feedback states." },
-      { type: "image", title: "Interaction panel", detail: "Screenshot slot for dialogue-style prompts without a backend." },
-      { type: "image", title: "Reward state", detail: "Screenshot slot for completion UI and player feedback." }
+      { type: "video", title: "Quest flow preview", detail: "Preview objectives from first interaction to completion." },
+      { type: "image", title: "Objective marker", detail: "Review markers, prompts, and feedback states." },
+      { type: "image", title: "Interaction panel", detail: "See how dialogue-style prompts can be presented." },
+      { type: "image", title: "Reward state", detail: "Check completion UI and player feedback moments." }
     ]
   },
   {
@@ -99,7 +99,7 @@ const products = [
     checkoutUrl: "https://example.com/checkout/creator-lobby-suite",
     featured: false,
     shortDescription: "A polished hub concept for portals, product showcases, update boards, and creator-brand presentation.",
-    description: "This fake listing simulates a higher-priced environment product. The real version could include modular lobby pieces, presentation zones, showcase boards, and update areas for live islands.",
+    description: "A premium environment foundation for creators who want a polished first impression. Use it for portal hubs, product showcases, update boards, and creator-brand presentation spaces.",
     includes: [
       "Lobby layout blueprint",
       "Portal and showcase zones",
@@ -111,10 +111,10 @@ const products = [
       "Built for product presentation"
     ],
     media: [
-      { type: "video", title: "Lobby reveal", detail: "Fake video slot for a cinematic walk-through." },
-      { type: "image", title: "Portal wall", detail: "Screenshot slot for multi-island portal presentation." },
-      { type: "image", title: "Display plinths", detail: "Screenshot slot for product, update, or season showcase areas." },
-      { type: "image", title: "Ambient pass", detail: "Screenshot slot for fog, bloom, and colour grading." }
+      { type: "video", title: "Lobby reveal", detail: "Preview the hub layout through a cinematic walkthrough." },
+      { type: "image", title: "Portal wall", detail: "Review multi-island portal presentation options." },
+      { type: "image", title: "Display plinths", detail: "See product, update, or season showcase areas." },
+      { type: "image", title: "Ambient pass", detail: "Check fog, bloom, and colour-grading direction." }
     ]
   }
 ];
