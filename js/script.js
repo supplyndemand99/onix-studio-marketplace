@@ -84,9 +84,21 @@ function isLemonSqueezyCheckout(url) {
   return /^https:\/\/[^/]+\.lemonsqueezy\.com\/checkout\/buy\//.test(String(url));
 }
 
+function hasCheckoutUrl(product) {
+  return Boolean(product.checkoutUrl && !String(product.checkoutUrl).includes("example.com"));
+}
+
 function checkoutButtonClasses(product, modifierClass) {
   const overlayClass = isLemonSqueezyCheckout(product.checkoutUrl) ? " lemonsqueezy-button" : "";
   return `button ${modifierClass}${overlayClass}`;
+}
+
+function checkoutActionTemplate(product, modifierClass) {
+  if (!hasCheckoutUrl(product)) {
+    return `<button class="button ${modifierClass}" type="button" disabled>Coming soon</button>`;
+  }
+
+  return `<a class="${checkoutButtonClasses(product, modifierClass)}" href="${escapeHtml(product.checkoutUrl)}" target="_blank" rel="noopener noreferrer">Buy now</a>`;
 }
 
 function renderProducts() {
@@ -128,7 +140,7 @@ function productCardTemplate(product) {
         </ul>
         <div class="product-card__actions">
           <button class="button button--primary" type="button" data-open-product="${escapeHtml(product.id)}">View details</button>
-          <a class="${checkoutButtonClasses(product, "button--secondary")}" href="${escapeHtml(product.checkoutUrl)}" target="_blank" rel="noopener noreferrer">Buy now</a>
+          ${checkoutActionTemplate(product, "button--secondary")}
         </div>
       </div>
     </article>
@@ -273,7 +285,7 @@ function openProductDetail(productId) {
             <span>One-time purchase</span>
           </div>
           <div class="product-card__actions">
-            <a class="${checkoutButtonClasses(product, "button--primary")}" href="${escapeHtml(product.checkoutUrl)}" target="_blank" rel="noopener noreferrer">Buy now</a>
+            ${checkoutActionTemplate(product, "button--primary")}
             <button class="button button--secondary" type="button" data-close-product>Keep browsing</button>
           </div>
         </div>
