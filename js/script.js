@@ -141,8 +141,14 @@ function productCardTemplate(product) {
 }
 
 function productVisualTemplate(product, context = "card") {
+  const isDetail = context === "detail";
+  const visualTag = isDetail ? "button" : "div";
+  const visualAttributes = isDetail
+    ? `type="button" data-open-media data-media-type="image" data-media-title="${escapeHtml(`${product.name} preview`)}" data-media-detail="${escapeHtml(product.shortDescription || product.description)}" data-media-theme="${escapeHtml(product.theme)}" data-media-label="Product preview" aria-label="Open larger product preview for ${escapeHtml(product.name)}"`
+    : `aria-hidden="true"`;
+
   return `
-    <div class="product-visual product-visual--${escapeHtml(product.theme)} product-visual--${escapeHtml(context)}" aria-hidden="true">
+    <${visualTag} class="product-visual product-visual--${escapeHtml(product.theme)} product-visual--${escapeHtml(context)} ${isDetail ? "product-visual--clickable" : ""}" ${visualAttributes}>
       <img class="product-visual__preview-image" src="images/website-preview.png" alt="" loading="lazy">
       <div class="product-visual__chrome">
         <span></span><span></span><span></span>
@@ -154,7 +160,7 @@ function productVisualTemplate(product, context = "card") {
       <div class="product-visual__meter"></div>
       <div class="product-visual__status">${escapeHtml(product.status || product.category)}</div>
       <span class="product-visual__brand-spin"></span>
-    </div>
+    </${visualTag}>
   `;
 }
 
@@ -295,7 +301,8 @@ function openMediaViewer(trigger) {
     title: trigger.dataset.mediaTitle || "Product preview",
     detail: trigger.dataset.mediaDetail || "",
     theme: trigger.dataset.mediaTheme || "arena",
-    index: trigger.dataset.mediaIndex || ""
+    index: trigger.dataset.mediaIndex || "",
+    label: trigger.dataset.mediaLabel || ""
   };
 
   lastMediaTrigger = trigger;
@@ -306,7 +313,7 @@ function openMediaViewer(trigger) {
       <button class="media-lightbox__close" type="button" data-close-media aria-label="Close larger preview">Close</button>
       ${mediaViewerVisualTemplate(media)}
       <div class="media-lightbox__body">
-        <p class="eyebrow">${media.type === "video" ? "Preview video" : `Product picture ${escapeHtml(media.index)}`}</p>
+        <p class="eyebrow">${media.label ? escapeHtml(media.label) : media.type === "video" ? "Preview video" : `Product picture ${escapeHtml(media.index)}`}</p>
         <h2 id="media-lightbox-title">${escapeHtml(media.title)}</h2>
         <p>${escapeHtml(media.detail)}</p>
       </div>

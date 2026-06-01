@@ -212,15 +212,16 @@ code {
 .nav-menu a:hover,
 .nav-menu a[aria-current="page"],
 .nav-cta[aria-current="page"] {
-  border-color: rgba(170, 240, 255, 0.42);
+  border-color: rgba(190, 247, 255, 0.62);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(135, 237, 255, 0.08)),
-    rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), 0 10px 28px rgba(0, 209, 255, 0.12);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(135, 237, 255, 0.12)),
+    rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 12px 32px rgba(0, 209, 255, 0.16);
   transform: translateY(-1px);
 }
 
 .nav-cta[aria-current="page"] {
+  border-radius: 999px;
   color: #042052;
 }
 
@@ -793,7 +794,14 @@ h4 {
   --accent: var(--cyan);
   --accent-2: var(--mint);
   position: relative;
+  display: block;
+  width: 100%;
   min-height: 220px;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  appearance: none;
   overflow: hidden;
   border-bottom: 1px solid var(--line-soft);
   background:
@@ -811,6 +819,19 @@ h4 {
   height: clamp(240px, 36vh, 340px);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+}
+
+.product-visual--clickable {
+  cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.product-visual--clickable:hover,
+.product-visual--clickable:focus-visible {
+  border-color: rgba(190, 247, 255, 0.66);
+  box-shadow: 0 22px 64px rgba(0, 209, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  outline: none;
+  transform: translateY(-2px);
 }
 
 .product-visual--video,
