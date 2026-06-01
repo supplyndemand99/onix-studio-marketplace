@@ -299,7 +299,7 @@ code {
   position: relative;
   display: grid;
   align-items: end;
-  min-height: 780px;
+  min-height: 730px;
   overflow: hidden;
   border-bottom: 1px solid var(--line-soft);
 }
@@ -453,9 +453,9 @@ code {
 
 .hero__inner {
   display: grid;
-  gap: 1.55rem;
+  gap: 1.45rem;
   z-index: 3;
-  padding: 9rem 0 5.6rem;
+  padding: 8.3rem 0 5rem;
 }
 
 .eyebrow {
@@ -475,8 +475,8 @@ h4 {
 }
 
 h1 {
-  max-width: 850px;
-  font-size: 5.6rem;
+  max-width: 790px;
+  font-size: 5.05rem;
 }
 
 h2 {
