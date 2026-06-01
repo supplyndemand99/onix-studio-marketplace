@@ -16,7 +16,7 @@ function updateContactLinks() {
 function initNavigation() {
   const toggle = document.querySelector("[data-nav-toggle]");
   const menu = document.querySelector("[data-nav-menu]");
-  const links = document.querySelectorAll(".nav-menu a");
+  const links = document.querySelectorAll(".nav-menu a, .nav-cta");
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
   links.forEach((link) => {
@@ -267,45 +267,52 @@ function openProductDetail(productId) {
     <div class="product-modal__backdrop" data-close-product></div>
     <section class="product-modal__panel glass-card" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
       <button class="product-modal__close" type="button" data-close-product aria-label="Close product details">Close</button>
-      <div class="product-modal__hero">
-        ${productVisualTemplate(product, "detail")}
-        <div>
-          <p class="eyebrow">${escapeHtml(product.category)}</p>
-          <h2 id="product-modal-title">${escapeHtml(product.name)}</h2>
-          <p>${escapeHtml(product.description)}</p>
-          <div class="product-modal__price">
-            <strong>${escapeHtml(product.price)}</strong>
-            <span>${hasCheckoutUrl(product) ? "One-time purchase" : "Product page coming soon"}</span>
+      <div class="product-modal__layout">
+        <div class="product-modal__hero">
+          ${productVisualTemplate(product, "detail")}
+          <div>
+            <p class="eyebrow">${escapeHtml(product.category)}</p>
+            <h2 id="product-modal-title">${escapeHtml(product.name)}</h2>
+            <p>${escapeHtml(product.description)}</p>
+            <div class="product-modal__price">
+              <strong>${escapeHtml(product.price)}</strong>
+              <span>${hasCheckoutUrl(product) ? "One-time purchase" : "Product page coming soon"}</span>
+            </div>
+            <div class="product-card__actions">
+              ${checkoutActionTemplate(product, "button--primary")}
+              <button class="button button--secondary" type="button" data-close-product>Keep browsing</button>
+            </div>
           </div>
-          <div class="product-card__actions">
-            ${checkoutActionTemplate(product, "button--primary")}
-            <button class="button button--secondary" type="button" data-close-product>Keep browsing</button>
-          </div>
-        </div>
-      </div>
 
-      <div class="product-modal__content">
-        <div>
-          <h3>Preview video</h3>
-          ${firstVideo ? mediaPreviewTemplate(firstVideo, product.theme, 1) : ""}
         </div>
-        <div>
-          <h3>Product pictures</h3>
-          <div class="modal-media-grid">
-            ${pictures.map((item, index) => mediaPreviewTemplate(item, product.theme, index + 1)).join("")}
+
+        <div class="product-modal__content">
+          <div class="product-modal__previews">
+            <div>
+              <h3>Preview video</h3>
+              ${firstVideo ? mediaPreviewTemplate(firstVideo, product.theme, 1) : ""}
+            </div>
+            <div>
+              <h3>Product pictures</h3>
+              <div class="modal-media-grid">
+                ${pictures.map((item, index) => mediaPreviewTemplate(item, product.theme, index + 1)).join("")}
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <h3>Included</h3>
-          <ul class="modal-list">
-            ${(product.includes || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-          </ul>
-        </div>
-        <div>
-          <h3>Details</h3>
-          <ul class="modal-list">
-            ${(product.specs || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-          </ul>
+          <div class="product-modal__facts">
+            <div>
+              <h3>Included</h3>
+              <ul class="modal-list">
+                ${(product.includes || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+              </ul>
+            </div>
+            <div>
+              <h3>Details</h3>
+              <ul class="modal-list">
+                ${(product.specs || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
