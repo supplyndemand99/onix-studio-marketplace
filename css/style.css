@@ -733,8 +733,7 @@ h4 {
   padding: 1.2rem;
 }
 
-.product-card > .product-visual,
-.gallery-card > .product-visual {
+.product-card > .product-visual {
   border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
 }
 
@@ -1099,6 +1098,50 @@ h4 {
   display: grid;
   gap: 0.22rem;
   padding: 1rem;
+}
+
+.gallery-card__preview {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+  background: rgba(3, 20, 47, 0.78);
+}
+
+.gallery-card__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.04);
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.gallery-card:hover .gallery-card__preview img,
+.gallery-card:focus-visible .gallery-card__preview img {
+  filter: saturate(1.16) contrast(1.06);
+  transform: scale(1.035);
+}
+
+.gallery-card__preview::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 18, 43, 0.03), rgba(2, 18, 43, 0.24)),
+    linear-gradient(90deg, rgba(2, 18, 43, 0.1), transparent 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.gallery-card__preview .product-visual__brand-spin {
+  width: clamp(56px, 13%, 86px);
+}
+
+.gallery-card__preview .play-icon {
+  z-index: 6;
+  border-block-width: 18px;
+  border-left-width: 27px;
 }
 
 .gallery-card__meta span {

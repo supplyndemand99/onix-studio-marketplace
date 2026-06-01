@@ -206,11 +206,17 @@ function renderGallery() {
     }
 
     gallery.innerHTML = items
-      .map((item) => {
-        const product = productById(item.productId) || { id: item.productId, name: item.title, theme: item.theme, status: item.category };
+      .map((item, index) => {
+        const previewImage = item.image || item.poster || "images/website-preview.png";
+        const mediaSource = item.src ? ` data-media-src="${escapeHtml(item.src)}"` : "";
+        const mediaPoster = ` data-media-poster="${escapeHtml(item.poster || previewImage)}"`;
         return `
-          <button class="gallery-card glass-card gallery-card--${escapeHtml(item.theme)}" type="button" data-gallery-product="${escapeHtml(item.productId)}" data-animate aria-label="Open ${escapeHtml(item.title)} details">
-            ${productVisualTemplate(product, item.type === "video" ? "video" : "image")}
+          <button class="gallery-card glass-card gallery-card--${escapeHtml(item.theme)}" type="button" data-open-media data-media-type="${escapeHtml(item.type || "image")}" data-media-title="${escapeHtml(item.title)}" data-media-detail="${escapeHtml(item.detail)}" data-media-theme="${escapeHtml(item.theme)}" data-media-index="${escapeHtml(index + 1)}" data-media-label="${escapeHtml(item.category || "Showcase")}"${mediaSource}${mediaPoster} data-animate aria-label="Open larger showcase preview: ${escapeHtml(item.title)}">
+            <span class="gallery-card__preview gallery-card__preview--${escapeHtml(item.type || "image")}">
+              <img src="${escapeHtml(previewImage)}" alt="" loading="lazy">
+              <span class="product-visual__brand-spin"></span>
+              ${item.type === "video" ? `<span class="play-icon"></span>` : ""}
+            </span>
             <span class="gallery-card__meta">
               <span>${escapeHtml(item.category)}</span>
               <strong>${escapeHtml(item.title)}</strong>
@@ -234,12 +240,6 @@ function initProductInteractions() {
     const openButton = event.target.closest("[data-open-product]");
     if (openButton) {
       openProductDetail(openButton.dataset.openProduct);
-      return;
-    }
-
-    const galleryButton = event.target.closest("[data-gallery-product]");
-    if (galleryButton) {
-      openProductDetail(galleryButton.dataset.galleryProduct);
       return;
     }
 
