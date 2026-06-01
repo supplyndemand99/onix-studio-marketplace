@@ -9,7 +9,7 @@ const products = [
     id: "rift-arena-framework",
     name: "Rift Arena Framework",
     category: "Map Kit",
-    price: "$24.99",
+    price: "£9.99",
     theme: "arena",
     status: "Featured",
     checkoutUrl: "https://onixstudiosdev.lemonsqueezy.com/checkout/buy/9abb6bfc-d915-4153-a70a-1c00ff8f3152",

@@ -80,17 +80,8 @@ function productById(productId) {
   return Array.isArray(window.products) ? window.products.find((product) => product.id === productId) : null;
 }
 
-function isLemonSqueezyCheckout(url) {
-  return /^https:\/\/[^/]+\.lemonsqueezy\.com\/checkout\/buy\//.test(String(url));
-}
-
 function hasCheckoutUrl(product) {
   return Boolean(product.checkoutUrl && !String(product.checkoutUrl).includes("example.com"));
-}
-
-function checkoutButtonClasses(product, modifierClass) {
-  const overlayClass = isLemonSqueezyCheckout(product.checkoutUrl) ? " lemonsqueezy-button" : "";
-  return `button ${modifierClass}${overlayClass}`;
 }
 
 function checkoutActionTemplate(product, modifierClass) {
@@ -98,7 +89,7 @@ function checkoutActionTemplate(product, modifierClass) {
     return `<button class="button ${modifierClass}" type="button" disabled>Coming soon</button>`;
   }
 
-  return `<a class="${checkoutButtonClasses(product, modifierClass)}" href="${escapeHtml(product.checkoutUrl)}" target="_blank" rel="noopener noreferrer">Buy now</a>`;
+  return `<a class="button ${modifierClass}" href="${escapeHtml(product.checkoutUrl)}" target="_blank" rel="noopener noreferrer">Buy now</a>`;
 }
 
 function renderProducts() {
@@ -322,9 +313,6 @@ function openProductDetail(productId) {
   document.body.classList.add("product-modal-open");
   modal.querySelector(".product-modal__close").focus();
 
-  if (window.createLemonSqueezy) {
-    window.createLemonSqueezy();
-  }
 }
 
 function closeProductDetail() {
@@ -380,9 +368,3 @@ initProductInteractions();
 initProductModalClose();
 initContactForm();
 initRevealAnimations();
-
-window.addEventListener("load", () => {
-  if (window.createLemonSqueezy) {
-    window.createLemonSqueezy();
-  }
-});
