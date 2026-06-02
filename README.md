@@ -27,6 +27,10 @@ OnixStudiosMarketplace/
   services.html
   gallery.html
   contact.html
+  faq.html
+  policies.html
+  404.html
+  LAUNCH-CHECKLIST.md
 
   css/
     style.css
@@ -103,6 +107,23 @@ data/gallery.js
 
 Each item can open a product detail modal by matching `productId` to a product in `products.js`.
 
+## Edit FAQ and policies
+
+Update launch support pages in:
+
+```txt
+faq.html
+policies.html
+```
+
+The custom error page is:
+
+```txt
+404.html
+```
+
+Cloudflare Pages will use `404.html` automatically for missing pages.
+
 ## Add real screenshots or videos later
 
 For now, product pages show simulated picture and video slots. Later you can add real image/video fields to `data/products.js` and update `js/script.js` to render those files.
@@ -118,6 +139,14 @@ Use clear names like:
 - `logo.png`
 - `arena-preview-1.jpg`
 - `economy-video-thumb.jpg`
+
+Before launch, use:
+
+```txt
+LAUNCH-CHECKLIST.md
+```
+
+It includes media size targets, analytics setup notes, and the remaining pre-sale checks.
 
 ## Update contact email
 

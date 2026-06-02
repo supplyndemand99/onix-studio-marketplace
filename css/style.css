@@ -1059,6 +1059,13 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.compact-help {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.4rem;
+  align-items: end;
+}
+
 .seo-content__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
@@ -1284,6 +1291,85 @@ textarea:focus {
   backdrop-filter: blur(26px);
 }
 
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.info-card,
+.policy-card,
+.faq-item,
+.not-found-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07)),
+    rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(24px);
+}
+
+.info-card,
+.policy-card,
+.faq-item {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.2rem;
+}
+
+.info-card p,
+.policy-card p,
+.faq-item p,
+.policy-card li,
+.not-found-card p {
+  color: var(--muted);
+}
+
+.policy-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.policy-card {
+  scroll-margin-top: 96px;
+}
+
+.policy-card ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item h2 {
+  font-size: 1.35rem;
+}
+
+.not-found {
+  min-height: calc(100dvh - 76px);
+  display: grid;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.not-found-card {
+  display: grid;
+  gap: 1.2rem;
+  width: min(100% - 2rem, 860px);
+  margin: 0 auto;
+  padding: clamp(1.4rem, 4vw, 2.6rem);
+}
+
+.not-found-card h1 {
+  font-size: clamp(2.45rem, 8vw, 4.8rem);
+}
+
 .site-footer {
   border-top: 1px solid var(--line-soft);
   background: rgba(2, 16, 39, 0.56);
@@ -1292,7 +1378,7 @@ textarea:focus {
 
 .site-footer__inner {
   display: grid;
-  grid-template-columns: 1.5fr 0.6fr 0.9fr;
+  grid-template-columns: 1.35fr 0.55fr 0.65fr 0.9fr;
   gap: 2rem;
   width: min(100% - 2rem, var(--max));
   margin: 0 auto;
@@ -1875,6 +1961,7 @@ textarea:focus {
   .section__header,
   .split,
   .contact-layout,
+  .compact-help,
   .seo-content__inner,
   .product-modal__hero {
     grid-template-columns: 1fr;
@@ -1902,6 +1989,7 @@ textarea:focus {
   .process-list,
   .gallery-grid--home,
   .gallery-grid--large,
+  .info-grid,
   .site-footer__inner,
   .product-modal__content {
     grid-template-columns: 1fr 1fr;
@@ -2008,6 +2096,7 @@ textarea:focus {
   .feature-grid,
   .gallery-grid--home,
   .gallery-grid--large,
+  .info-grid,
   .form-grid,
   .seo-content__inner,
   .site-footer__inner,
