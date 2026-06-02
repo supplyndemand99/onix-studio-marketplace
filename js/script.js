@@ -461,21 +461,82 @@ function initContactForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
 
-  form.addEventListener("submit", (event) => {
+  const status = form.querySelector("[data-form-status]");
+  const submitButton = form.querySelector("[data-contact-submit]");
+  const fields = form.querySelector("[data-contact-fields]");
+  const successPanel = form.querySelector("[data-form-success]");
+  const resetButton = form.querySelector("[data-contact-reset]");
+  const defaultStatus = status ? status.textContent : "";
+
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      form.reset();
+
+      if (fields) fields.hidden = false;
+      if (successPanel) successPanel.hidden = true;
+
+      if (status) {
+        status.textContent = defaultStatus;
+        status.classList.remove("form-note--success", "form-note--error");
+      }
+
+      const firstField = form.querySelector("#name");
+      if (firstField) firstField.focus();
+    });
+  }
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(form);
-    const lines = [
-      `Name: ${formData.get("name") || ""}`,
-      `Email: ${formData.get("email") || ""}`,
-      `Topic: ${formData.get("topic") || ""}`,
-      `Order email or receipt ID: ${formData.get("order") || ""}`,
-      "",
-      "Message:",
-      formData.get("message") || ""
-    ];
+    const endpoint = form.getAttribute("action") || "https://api.w3forms.com/submit";
 
-    window.location.href = `mailto:${siteSettings.email}?subject=${encodeURIComponent(siteSettings.contactSubject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    if (status) {
+      status.textContent = "Sending your message...";
+      status.classList.remove("form-note--success", "form-note--error");
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: formData
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Message failed");
+      }
+
+      form.reset();
+
+      if (fields) fields.hidden = true;
+      if (successPanel) {
+        successPanel.hidden = false;
+        successPanel.focus();
+      }
+    } catch (error) {
+      if (status) {
+        status.textContent = `Something went wrong. Please email ${siteSettings.email} directly.`;
+        status.classList.add("form-note--error");
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send message";
+      }
+
+      if (status && !status.textContent) {
+        status.textContent = defaultStatus;
+      }
+    }
   });
 }
 

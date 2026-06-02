@@ -92,38 +92,50 @@
         <div data-animate>
           <p class="eyebrow">Message Onix Studios</p>
           <h2>Send the details.</h2>
-          <form class="contact-form" data-contact-form>
-            <div class="form-grid">
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required>
+          <form class="contact-form" action="https://api.w3forms.com/submit" method="POST" data-contact-form>
+            <div class="contact-form__fields" data-contact-fields>
+              <input type="hidden" name="access_key" value="w3f_013471ea2957eb9d36f549501189c513c22252f50996f7">
+              <input type="hidden" name="subject" value="New Onix Studios support message">
+              <input type="hidden" name="from_name" value="Onix Studios Website">
+              <input class="bot-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="topic">Topic</label>
+                  <select id="topic" name="topic" required>
+                    <option value="">Choose a topic</option>
+                    <option>Product question</option>
+                    <option>Download support</option>
+                    <option>Custom UEFN work</option>
+                    <option>Checkout issue</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="order">Order email or receipt ID</label>
+                  <input id="order" name="order" type="text" placeholder="Optional">
+                </div>
               </div>
               <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us which product you are asking about and what you need help with." required></textarea>
               </div>
-              <div class="field">
-                <label for="topic">Topic</label>
-                <select id="topic" name="topic" required>
-                  <option value="">Choose a topic</option>
-                  <option>Product question</option>
-                  <option>Download support</option>
-                  <option>Custom UEFN work</option>
-                  <option>Checkout issue</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="order">Order email or receipt ID</label>
-                <input id="order" name="order" type="text" placeholder="Optional">
-              </div>
+              <button class="button button--gold" type="submit" data-contact-submit>Send message</button>
+              <p class="form-note" data-form-status aria-live="polite">Your message will be sent through the Onix Studios support form.</p>
             </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us which product you are asking about and what you need help with." required></textarea>
+            <div class="form-success" data-form-success tabindex="-1" hidden>
+              <p class="eyebrow">Message sent</p>
+              <h3>Thanks, we have got it.</h3>
+              <p>We will reply to the email you entered as soon as we can. If this is about an order, keep your receipt email handy so we can find it quickly.</p>
+              <button class="button button--secondary" type="button" data-contact-reset>Send another message</button>
             </div>
-            <button class="button button--gold" type="submit">Send message</button>
-            <p class="form-note">This opens an email draft with your message filled in.</p>
           </form>
         </div>
 
