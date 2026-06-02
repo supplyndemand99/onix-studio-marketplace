@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onixstudiosdev.com/sitemap.xml

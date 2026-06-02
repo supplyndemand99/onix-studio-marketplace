@@ -1,0 +1,16 @@
+{
+  "name": "Onix Studios UEFN Marketplace",
+  "short_name": "Onix Studios",
+  "description": "UEFN assets, Verse-ready systems, materials, map kits, and creator tools from Onix Studios.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#03142f",
+  "theme_color": "#063b7c",
+  "icons": [
+    {
+      "src": "/images/onix-logo-alpha.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
